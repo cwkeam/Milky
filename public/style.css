@@ -21,19 +21,19 @@ body{
 }
 .main{
 	background: rgba(51,55,79,1);
-background: -moz-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,55,79,1)), color-stop(63%, rgba(51,55,79,0.65)), color-stop(100%, rgba(236,113,31,0.45)));
-background: -webkit-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-background: -o-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-background: -ms-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-background: linear-gradient(to bottom, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33374f', endColorstr='#ec711f', GradientType=0 );
+	background: -moz-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,55,79,1)), color-stop(63%, rgba(51,55,79,0.65)), color-stop(100%, rgba(236,113,31,0.45)));
+	background: -webkit-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
+	background: -o-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
+	background: -ms-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
+	background: linear-gradient(to bottom, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33374f', endColorstr='#ec711f', GradientType=0 );
 }
 .stars{
 	padding:0;
 	width:100vw;
 	height:100vh;
-	background-image:url('./starry background.png');
+	background-image:url('./starrybackground.png');
 	background-size:cover;
 	background-position:center;
 	background-attachment: fixed;
@@ -118,6 +118,8 @@ div.learnmore span{
 }
 
 ul.onepage-pagination{
+	opacity: 1;
+	display:block;
 	margin-right:30px;
 }
 .onepage-pagination li a:before{
