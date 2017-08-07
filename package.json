@@ -1,0 +1,27 @@
+{
+  "name": "milky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.4",
+    "hbs": "^4.0.1",
+    "http": "^0.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeandproduce/Milky.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeandproduce/Milky/issues"
+  },
+  "homepage": "https://github.com/codeandproduce/Milky#readme"
+}
