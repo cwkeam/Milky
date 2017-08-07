@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+@font-face{
+	font-family: 'AvenirNext';
+	src: url('Avenir Next.ttc');
+}
+
+html{
+	padding:0;
+	margin:0;
+}
+
+body{
+	box-sizing: border-box;
+	position:relative;
+	background-color:#33374f;
+	font-family: 'Raleway';
+	padding:0;
+	margin: 0;
+	margin-top:0;
+}
+
+.stars{
+	padding:0;
+	width:100vw;
+	height:100vh;
+	background-image:url('./starry background.png');
+	background-size:cover;
+	background-position:center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+ul.og{
+	position: absolute;
+	margin-top:38vh;
+	padding:0;
+}
+
+.stars h1.heading{
+	text-align: center;
+	font-size:30px;
+	color:white;
+	line-height: 50px;
+	letter-spacing: 2.5px;
+	font-weight:100;
+	padding:0 30%;
+}
+button.start{
+	display: block;
+	margin: auto;
+	padding:12px 25px;
+	background-color: #b1b2bd;
+	border:2px solid white;
+	border-radius: 10px;
+	font-size:16.5px;
+	color:#33374f;
+	font-weight:500;
+}
+button.start:hover{
+	transition:all 250ms ease-in-out;
+	background-color:#33374f;
+	color:white;
+}
+ul.og{
+	padding:none;
+	width:100%;
+}
+ul.og > li{
+	width:100%;
+	list-style: none;
+}
+.buttonli{
+	margin-top:70px;
+}
+div.learnmore{
+	transition: all 250ms ease-in-out;
+	color:white;
+	opacity:1;
+}
+div.learnmore > ul{
+	width:100%;
+	position:absolute;
+	bottom:35px;
+	display:block;
+	margin:auto;
+	text-align: center;
+	cursor:pointer;
+	
+}
+div.learnmore > ul >li{
+	display:block;
+}
+
+p.learntext{
+	position: relative;
+	margin-bottom:20px;
+	padding:0;
+	width:100%;
+	text-align: center;
+}
+div.learnmore a{
+	padding-top:20px;
+}
+div.learnmore span{
+	position:relative;
+	display:inline;
+	margin:auto;
+}
+
+ul.onepage-pagination{
+	margin-right:30px;
+}
+.onepage-pagination li a:before{
+	background: white !important;
+}
+.onepage-pagination li a.active:before{
+	border: 1px solid white !important;
+}
