@@ -19,10 +19,15 @@ $(document).ready(function(){
 
 	$('#fullpage').fullpage({
 		controlArrows: false,
-		scrollingSpeed: 2000
+		scrollingSpeed: 3000
 	});
 	$.fn.fullpage.setAllowScrolling(false, 'up');
 
+
+
+
+
+	$('html').css('visibility', 'visible');
 });
 
 $('.tar2').hover(function(){
