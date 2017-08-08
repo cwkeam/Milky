@@ -11,6 +11,7 @@ $(document).ready(function(){
 		$('ul.og').css('margin-top', '20vh');
 	}else{
 		$('.stars').css('background-image', 'url("/public/starrybackground.png")');
+		$('.sliding').css('background-image', 'url("/public/starrytopbackground.png")');
 		$('h1.heading').css('padding','0 30%');
 		$('ul.og').css('margin-top', '30vh');
 	}
@@ -18,9 +19,9 @@ $(document).ready(function(){
 
 	$('#fullpage').fullpage({
 		controlArrows: false,
-		anchors: ['page1', 'page2', 'page3'],
 		scrollingSpeed: 2000
 	});
+	$.fn.fullpage.setAllowScrolling(false, 'up');
 
 });
 
@@ -36,7 +37,7 @@ $('.tar2').hover(function(){
 
 $('.tars').click(function(){
 // 	clickedLearnMore = true;
-	$.fn.fullpage.moveTo('page3');
+	$.fn.fullpage.moveTo(3,0);
 
 });
 
@@ -58,6 +59,21 @@ $(window).resize(function(){
 });
 
 $('button.start').click(function(){
-	$.fn.fullpage.moveTo('page1');
-	console.log('clickkk');
+	$.fn.fullpage.moveTo(1);
+	$.fn.fullpage.setAllowScrolling(false, 'right');
+
+});
+
+$('#firsta').click(function(){
+	$.fn.fullpage.setAllowScrolling(false, 'down','right');
+});
+$('#firstback').click(function(){
+	$.fn.fullpage.setAllowScrolling(true,'down');
+	$.fn.fullpage.setAllowScrolling(false,'right');
+});
+$('.next').click(function(){
+	$.fn.fullpage.moveSlideRight();
+});
+$('.back').click(function(){
+	$.fn.fullpage.moveSlideLeft();
 });
