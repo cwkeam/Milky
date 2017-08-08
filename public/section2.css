@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+*{
+  font-family: 'Raleway';
+}
+.wrapper{
+  background-color:#5f4342;
+  padding:0;
+	width:100vw;
+	height:100vh;
+}
+.trees{
+	padding:0;
+	width:100vw;
+	height:100vh;
+	background-image:url('/public/trees.png');
+	background-position:center;
+	background-repeat: no-repeat;
+}
+.trees-contain{
+  background-image:url('/public/trees.png');
+	background-position:center;
+  position:absolute;
+  width:100vw;
+  height:100px;
+  top:10vh;
+	background-repeat: no-repeat;
+}
+.rest{
+  position:absolute;
+  bottom:0;
+  width:100vw;
+  background-color:black;
+  height:calc(90vh - 97px);
+}
+
+.logo{
+  width:100px;
+  height:75px;
+  display:block;
+  margin:auto;
+  margin-top:60px;
+}
+.des{
+  color:white;
+  font-weight:100;
+  letter-spacing: 2px;
+  padding:0 25vw;
+  text-align:center;
+  display:block;
+  margin:auto;
+  margin-top:50px;
+  font-size:16px;
+}
+
+button.getstarted{
+  display: block;
+	margin: auto;
+	padding:12px 25px;
+	background-color: white;
+	border:2px solid white;
+	border-radius: 10px;
+	font-size:16.5px;
+	color:black;
+	font-weight:600;
+  margin-top:40px;
+}
+button.getstarted:focus{
+  outline:none;
+}
+button.getstarted:hover{
+  background-color:black;
+  color:white;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+}

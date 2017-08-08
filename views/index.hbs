@@ -2,40 +2,65 @@
 <html>
 	<head>
 		<meta charset="UTF-8"/>
+
+		<link rel="stylesheet" href="/public/jquery.fullPage.css"/>
 		<link rel="stylesheet" href="/public/style.css"/>
-		<link rel="stylesheet" href="/public/onepage-scroll.css"/>
+		<link rel="stylesheet" href="/public/section2.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<div class="main">
-			<section class="page1 section stars">
-				<ul class="heading og">
-					<li><h1 class="heading">Milky was designed for you to pull through your ambitions.</h1></li>
-					<li class="buttonli"><button class="start">Get started</button></li>
-				</ul>
-				<div class="learnmore bright">
-					
-					<ul class="tar2 default2 og">
-						<li class="tars"><p class="learntext tar1 default">Learn more</p></li>
-						<li class="tars leanmorelink"><a href="#"><span><img src="/public/arrow.png"/></span></a></li>
-					</ul>
+		<div id="fullpage">
+			<div class="section">
+				<div class="slide"> Slide 1 </div>
+				<div class="slide"> Slide 2 </div>
+				<div class="slide"> Slide 3 </div>
+				<div class="slide"> Slide 4 </div>
+			</div>
+
+			<div class="section active">
+				<div class="gradient">
+						<div class="stars">
+							<ul class="heading og">
+								<li><h1 class="heading">Milky was designed for you to pull through with your ambitions.</h1></li>
+								<li class="buttonli"><button class="start">Get started</button></li>
+							</ul>
+							<div class="learnmore bright">
+								<ul class="tar2 default2 og">
+									<li class="tars"><p class="learntext tar1 default">Learn more</p></li>
+									<li class="tars leanmorelink"><a href="#"><span><img src="/public/arrow.png"/></span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="section" style="background-color: black">
+				<div class="wrapper">
+					<div class="trees-contain">
+					</div>
+					<div class="rest">
+						<img class="logo" src="/public/logo.png"/>
+						<p class="des">
+							Milky was designed for you to organize your thoughts and ambitions amidst such a hasteful world. Many of us
+							don't commit ourselves to achieving our deepest desires because it really is difficult to get started on anything.
+							Milky aims to make an intuitive app to organize what you must do to accomplish what you want, in the clearest way possible.
+							You will see what we mean once you see what we've made for you.
+						</p>
+						<button class="start getstarted">Get started!</button>
+					</div>
 				</div>
-				
-			</section>
-			<section class="page2 section" style="background-color:black">
+			</div>
+			<div class=" section" style="background-color:red">
 				<p>yo</p>
-			</section>
-			<section class="page3 section" style="background-color:red">
-				<p>yo</p>
-			</section>
-			<section class="page4 section" style="background-color:green"></section>
+			</div>
+			<div class="page4 section" style="background-color:green">
+			</div>
 		</div>
-		
-	
+
+
 		<script type="text/javascript" src="/public/jquery-3.2.1.js"></script>
-		<script type="text/javascript" src="/public/jquery.onepage-scroll.min.js"></script>
-		
+		<script type="text/javascript" src="/public/jquery.fullPage.min.js"></script>
+
 		<script type="text/javascript" src="/public/jq.js"></script>
-		
+
 	</body>
 </html>

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 
-@font-face{
-	font-family: 'AvenirNext';
-	src: url('Avenir Next.ttc');
-}
 
 html{
 	padding:0;
@@ -19,24 +15,23 @@ body{
 	margin: 0;
 	margin-top:0;
 }
-.main{
+.gradient{
 	background: rgba(51,55,79,1);
-	background: -moz-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,55,79,1)), color-stop(63%, rgba(51,55,79,0.65)), color-stop(100%, rgba(236,113,31,0.45)));
-	background: -webkit-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-	background: -o-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-	background: -ms-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-	background: linear-gradient(to bottom, rgba(51,55,79,1) 0%, rgba(51,55,79,0.65) 63%, rgba(236,113,31,0.45) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33374f', endColorstr='#ec711f', GradientType=0 );
+	background: -moz-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,1) 49%, rgba(95,67,66,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,55,79,1)), color-stop(49%, rgba(51,55,79,1)), color-stop(100%, rgba(95,67,66,1)));
+	background: -webkit-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,1) 49%, rgba(95,67,66,1) 100%);
+	background: -o-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,1) 49%, rgba(95,67,66,1) 100%);
+	background: -ms-linear-gradient(top, rgba(51,55,79,1) 0%, rgba(51,55,79,1) 49%, rgba(95,67,66,1) 100%);
+	background: linear-gradient(to bottom, rgba(51,55,79,1) 0%, rgba(51,55,79,1) 49%, rgba(95,67,66,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33374f', endColorstr='#5f4342', GradientType=0 );
 }
 .stars{
 	padding:0;
 	width:100vw;
 	height:100vh;
-	background-image:url('./starrybackground.png');
+	background-image:url('/public/starrybackground.png');
 	background-size:cover;
 	background-position:center;
-	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
 
@@ -65,12 +60,17 @@ button.start{
 	font-size:16.5px;
 	color:#33374f;
 	font-weight:500;
+	cursor:pointer;
+}
+button.start:focus{
+  outline:none;
 }
 button.start:hover{
 	transition:all 250ms ease-in-out;
 	background-color:#33374f;
 	color:white;
 }
+
 ul.og{
 	padding:none;
 	width:100%;
@@ -88,14 +88,15 @@ div.learnmore{
 	opacity:1;
 }
 div.learnmore > ul{
-	width:100%;
-	position:absolute;
+	width:100px;
+	position: absolute;
 	bottom:35px;
+	left:0;
+	right:0;
 	display:block;
 	margin:auto;
 	text-align: center;
 	cursor:pointer;
-	
 }
 div.learnmore > ul >li{
 	display:block;
