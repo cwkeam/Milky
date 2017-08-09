@@ -32,3 +32,23 @@ button.submit:hover{
   background-color:white;
   color:black;
 }
+
+.linkwrapper{
+  position:absolute;
+  bottom:20px;
+  text-align: center;
+  width:100%;
+}
+
+
+.ornament{
+  text-decoration: none;
+  font-size:12px;
+  display: block;
+  margin: auto;
+  color:white;
+}
+.ornament:hover{
+  color:blue;
+  text-decoration:underline;
+}

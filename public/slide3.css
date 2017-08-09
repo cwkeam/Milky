@@ -19,10 +19,14 @@ hr{
   padding:3px;
   width:141px;
   border-radius: 18px;
-  background-color:white;
+  background-color: white;
   text-align: center;
   display: inline-block;
   padding-right:6px;
+}
+.hid{
+  background-color:#b8b8b8 !important;
+  border:1px solid #b8b8b8 !important;
 }
 #add-step{
   cursor:pointer;
@@ -62,11 +66,24 @@ img.plug{
   cursor: default;
   box-sizing: content-box !important;
 }
+#revert{
+  width:30px;
+  height:30px;
+  float:left;
+  cursor: pointer;
+}
+#revert:hover{
+  transition: all 250ms ease-in-out;
+  -webkit-filter: brightness(70%); /* Safari */
+  filter: brightness(70%);
+}
 
 .hidden{
   visibility:hidden;
 }
-
+.hidden h3{
+  color:white;
+}
 
 .dontworry{
   color:white;
@@ -76,10 +93,11 @@ img.plug{
 .taskoption{
   margin:10px;
   border: 2px solid black;
-  border-radius:5px;
+  border-radius:10px;
   background:none;
   padding:23px 30px;
   font-size:23px;
+  color:white;
 }
 .taskoption:hover{
   background-color:black;
@@ -114,14 +132,29 @@ ul{
   padding:10px 15px;
   height:40px;
   float:left;
-  width:83px;
+  width:100px;
   text-align:center;
 }
-.course{
-  background-color:red;
+/*if u want the hex colors typed out so u dont have to
+stare at the screenshot its 5caba4 cb6f4d and c4aa4e*/
+
+.course, #course:hover{
+  background-color:#5caba4;
 }
-.task{
-  background-color:blue;
+.task, #task:hover{
+  background-color:#cb6f4d;
+}
+.milestone, #milestone:hover{
+  background-color:#c4aa4e;
+}
+#course:hover{
+  color:white;
+}
+#task:hover{
+  color:white
+}
+#milestone:hover{
+  color:white;
 }
 .asktitle{
   flex-shrink: 0;
@@ -136,7 +169,19 @@ ul{
 	flex-grow:1;
   font-size:14px;
 }
+.delete{
+  width:30px;
+  height:30px;
+  float:right;
+  margin-top:4.5px;
+  cursor:pointer;
+}
 
+img.delete:hover{
+  transition: all 250ms ease-in-out;
+  -webkit-filter: brightness(60%); /* Safari */
+  filter: brightness(60%);
+}
 .contain-buttons{
   z-index:100;
 }

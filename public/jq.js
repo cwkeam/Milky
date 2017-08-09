@@ -1,5 +1,3 @@
-// var clickedLearnMore = false;
-
 $(document).ready(function(){
 	if($(window).height() > $(window).width()){
 		$('.stars').css('background-image','url("/public/starryvertical.png")');
@@ -18,7 +16,7 @@ $(document).ready(function(){
 
 	$('#fullpage').fullpage({
 		controlArrows: false,
-		scrollingSpeed: 2000,
+		scrollingSpeed: 100,
 		onLeave: function(index, nextIndex, direction){
 			var leavingSection = $(this);
 			console.log(index);
@@ -27,7 +25,6 @@ $(document).ready(function(){
 			}else{
 				$.fn.fullpage.setAllowScrolling(false, 'up');
 			}
-
 		}
 	});
 	$.fn.fullpage.setAllowScrolling(false, 'up');
@@ -35,6 +32,7 @@ $(document).ready(function(){
 
 	$('html').css('visibility', 'visible');
 });
+
 
 $('.tar2').hover(function(){
 	$('.learnmore').css('opacity','0.6');
@@ -90,6 +88,8 @@ $('.back').click(function(){
 });
 
 
+
+
 $('#addstep').click(function(e){
 	e.preventDefault();
 	$('#addstep').css('display', 'none');
@@ -101,35 +101,50 @@ $('#addstep').click(function(e){
   {
 		$('.hidden').css('visibility', 'visible');
   }, 300);
-
 });
 var clickedctwice = 0;
 var clickedtwice = 0;
 var clicked = 0;
+
+
 $('.taskoption').click(function(e){
 	e.preventDefault();
 	clicked++;
+	if(clicked == 3){
+		restorePlus(false);
+		$('.dontworry').css('visibility', 'visible');
+	}else{
+		restorePlus(true);
+	}
+	var whichEventId = this.id;
+	if(whichEventId == 'course'){
+		$('#stepslist').append(appendStep('course', '(Node.js introductory course)',clicked));
+		clickedctwice++;
+	}else if(whichEventId == 'task'){
+		$('#stepslist').append(appendStep('task', '(Finish coding Milky)',clicked));
+		clickedtwice++;
+	}else if(whichEventId == 'milestone'){
+		$('#stepslist').append(appendStep('milestone', '(50 minutes workout every day for 3 months)',clicked));
+		clickedtwice++;
+	}
+});
+$("#revert").click(function(e){
+	restorePlus(true);
+});
+
+
+
+function restorePlus(checked){
 	$('.hid').css('position','absolute');
 	$('.hid').css('visibility','hidden');
 	$('.hid').removeClass('transform-button');
 	$('.hidden').css('visibility', 'hidden');
-	if(clicked == 3){
-		$('.dontworry').css('visibility', 'visible');
-	}else{
+	if(checked == true){
 		$('#addstep').css('display', 'inline-block');
 	}
-	var whichEventId = this.id;
-	if(whichEventId == 'course'){
-		$('#stepslist').append(appendStep('course', '(Node.js introductory course)'));
-		clickedctwice++;
-	}else{
-		$('#stepslist').append(appendStep('task', '(Finish coding Milky)'));
-		clickedtwice++;
-	}
+}
 
-});
-
-function appendStep(stepType, place){
+function appendStep(stepType, place, id){
 	var placeholder = place;
 	if(clickedtwice == 1){
 		placeholder = '(Bicep curl 35lb)';
@@ -142,10 +157,11 @@ function appendStep(stepType, place){
 		placeholder = '(Python tutorial series youtube)';
 	}
 	var newStep = `
-	<li class="stepslisteitem">
+	<li id="${id}option" class="stepslisteitem">
 		<div class="stepoption ${stepType}"><span>${stepType}</span></div>
 		<div class="asktitle">
 			<input type="text" placeholder="Title this step. ${placeholder}"></input>
+			<img class="delete ${id}" src="/public/delete.png"/>
 		</div>
 	</li>
 	`

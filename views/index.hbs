@@ -15,7 +15,7 @@
 		<div id="fullpage">
 			<div class="section">
 				<div class="gradientsliding">
-					<form class="bigform sliding">
+					<form class="bigform sliding" method="post">
 						<div class="slide" data-anchor="slide1">
 							<div class="containform">
 								<h2>What's your name?</h2>
@@ -43,10 +43,12 @@
 									<ul id="stepslist" class="steps-list"></ul>
 									<button id="addstep" class="add-step"><span><img class="plug" src="/public/plus.png"/></span><span class="buttontext">Add a step</span></button>
 									<div class="hid add-step">
+										<img src="/public/plus.png" id="revert" />
 										<div class="hidden">
-											<h3>What kind of step is this?</h3>
+											<h3>What type of step is this?</h3>
 											<button id="course" class="taskoption">Course</button>
 											<button id="task" class="taskoption">Task</button>
+											<button id="milestone" class="taskoption">Milestone</button>
 										</div>
 									</div>
 									<p class="dontworry">No rush. You can add more later on!</p>
@@ -94,7 +96,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="section" style="background-color: black">
+			<div class="section">
 				<div class="wrapper">
 					<div class="trees-contain">
 					</div>
@@ -107,21 +109,23 @@
 							You will see what we mean once you see what we've made for you.
 						</p>
 						<button class="start getstarted">Get started!</button>
+						<div class="linkwrapper">
+
+
+							<a class="ornament" href="https://www.ornament.com">Our team that built this is from Ornament. Find out more about us!</a>
+					  </div>
+
 					</div>
 				</div>
 			</div>
-			<div class=" section" style="background-color:red">
-				<p>yo</p>
-			</div>
-			<div class="page4 section" style="background-color:green">
-			</div>
 		</div>
 
-
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="/public/jquery-3.2.1.js"></script>
 		<script type="text/javascript" src="/public/jquery.fullPage.min.js"></script>
 
 		<script type="text/javascript" src="/public/jq.js"></script>
+		<script type="text/javascript" src="/public/stoppollution.js"></script>
 
 	</body>
 </html>
