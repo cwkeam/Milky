@@ -1,0 +1,36 @@
+@media(max-width:600px){
+  .containform{
+    margin-top:20vh;
+  }
+  .containform h2{
+    font-size:22px;
+  }
+  .containform input{
+    width:70vw;
+  }
+  .containform h2.longer{
+    padding:0 10px;
+    font-size:20px;
+  }
+  .steps{
+    width:80vw;
+  }
+  .transform-button{
+    height:185px;
+  }
+  .taskoption{
+    width:100%;
+    margin:3px;
+    padding:7px 0px;
+    font-size:13px;
+  }
+  .hidden h3{
+    font-size:15px;
+  }
+  .contain-buttons{
+    margin-top:20px;
+  }
+  p.dontworry{
+    font-siz:12px;
+  }
+}

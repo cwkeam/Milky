@@ -13,6 +13,7 @@ $(document).ready(function(){
 		$('h1.heading').css('padding','0 30%');
 		$('ul.og').css('margin-top', '30vh');
 	}
+	var inFirstPage = false;
 
 	$('#fullpage').fullpage({
 		controlArrows: false,
@@ -20,10 +21,15 @@ $(document).ready(function(){
 		onLeave: function(index, nextIndex, direction){
 			var leavingSection = $(this);
 			console.log(index);
+			if(index == 2 && direction == 'up'){
+				inFirstPage = true;
+			}
 			if(index == 2 && direction =='down'){
 				$.fn.fullpage.setAllowScrolling(true, 'up');
+				inFirstPage = false;
 			}else{
 				$.fn.fullpage.setAllowScrolling(false, 'up');
+				inFirstPage = false;
 			}
 		}
 	});
@@ -70,7 +76,7 @@ $(window).resize(function(){
 $('button.start').click(function(){
 	$.fn.fullpage.moveTo(1);
 	$.fn.fullpage.setAllowScrolling(false, 'right');
-
+	inFirstPage = true;
 });
 
 $('#firsta').click(function(){
@@ -167,3 +173,9 @@ function appendStep(stepType, place, id){
 	`
 	return newStep;
 }
+
+$(document).keypress(function(e) {
+    if(e.which == 13 && inFirstPage) {
+        $.fn.fullpage.moveSlideRight();
+    }
+});
