@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 	$('#fullpage').fullpage({
 		controlArrows: false,
-		scrollingSpeed: 100,
+		scrollingSpeed: 2000,
 		onLeave: function(index, nextIndex, direction){
 			var leavingSection = $(this);
 			console.log(index);

@@ -24,12 +24,12 @@ $('.submit').click(function(e){
     );
   });
   var requestingUrl = $('#linkname').text();
-  socket.emit('sendForm', {
-    username:username,
-    goaltitle:goaltitle,
-    stepsArray:stepsArray,
-    requestingUrl:requestingUrl
-  });
+  // socket.emit('sendForm', {
+  //   username:username,
+  //   goaltitle:goaltitle,
+  //   stepsArray:stepsArray,
+  //   requestingUrl:requestingUrl
+  // });
 });
 
 socket.on('redirect', function(url){
