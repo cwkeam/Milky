@@ -16,16 +16,22 @@ $(document).ready(function(){
 		$('ul.og').css('margin-top', '30vh');
 	}
 
-
 	$('#fullpage').fullpage({
 		controlArrows: false,
-		scrollingSpeed: 3000
+		scrollingSpeed: 2000,
+		onLeave: function(index, nextIndex, direction){
+			var leavingSection = $(this);
+			console.log(index);
+			if(index == 2 && direction =='down'){
+				$.fn.fullpage.setAllowScrolling(true, 'up');
+			}else{
+				$.fn.fullpage.setAllowScrolling(false, 'up');
+			}
+
+		}
 	});
 	$.fn.fullpage.setAllowScrolling(false, 'up');
-
-
-
-
+	$.fn.fullpage.setKeyboardScrolling(false);
 
 	$('html').css('visibility', 'visible');
 });
@@ -82,3 +88,66 @@ $('.next').click(function(){
 $('.back').click(function(){
 	$.fn.fullpage.moveSlideLeft();
 });
+
+
+$('#addstep').click(function(e){
+	e.preventDefault();
+	$('#addstep').css('display', 'none');
+	$('.hid').toggleClass('transform-button');
+	$('.hid').css('position','relative');
+	$('.hid').css('visibility','visible');
+	setTimeout(
+  function()
+  {
+		$('.hidden').css('visibility', 'visible');
+  }, 300);
+
+});
+var clickedctwice = 0;
+var clickedtwice = 0;
+var clicked = 0;
+$('.taskoption').click(function(e){
+	e.preventDefault();
+	clicked++;
+	$('.hid').css('position','absolute');
+	$('.hid').css('visibility','hidden');
+	$('.hid').removeClass('transform-button');
+	$('.hidden').css('visibility', 'hidden');
+	if(clicked == 3){
+		$('.dontworry').css('visibility', 'visible');
+	}else{
+		$('#addstep').css('display', 'inline-block');
+	}
+	var whichEventId = this.id;
+	if(whichEventId == 'course'){
+		$('#stepslist').append(appendStep('course', '(Node.js introductory course)'));
+		clickedctwice++;
+	}else{
+		$('#stepslist').append(appendStep('task', '(Finish coding Milky)'));
+		clickedtwice++;
+	}
+
+});
+
+function appendStep(stepType, place){
+	var placeholder = place;
+	if(clickedtwice == 1){
+		placeholder = '(Bicep curl 35lb)';
+	}else if(clickedtwice == 2){
+		placeholder = '(Finish coding first website)';
+	}
+	if(clickedctwice == 1){
+		placeholder = '(AngularJS course)';
+	}else if(clickedctwice == 2){
+		placeholder = '(Python tutorial series youtube)';
+	}
+	var newStep = `
+	<li class="stepslisteitem">
+		<div class="stepoption ${stepType}"><span>${stepType}</span></div>
+		<div class="asktitle">
+			<input type="text" placeholder="Title this step. ${placeholder}"></input>
+		</div>
+	</li>
+	`
+	return newStep;
+}

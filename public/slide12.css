@@ -5,10 +5,9 @@
 .containform{
   display:block;
   margin:auto;
-  margin-top:35vh;
+  margin-top:28vh;
 }
 .gradientsliding{
-
   background: rgba(15,18,26,1);
   background: -moz-linear-gradient(top, rgba(15,18,26,1) 0%, rgba(15,18,26,1) 15%, rgba(66,71,103,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(15,18,26,1)), color-stop(15%, rgba(15,18,26,1)), color-stop(100%, rgba(66,71,103,1)));
@@ -24,7 +23,6 @@
   background-repeat: no-repeat;
   background-size:cover;
 }
-
 .fp-tableCell{
   padding:0 !important;
   display:block;
@@ -77,4 +75,7 @@ a.back{
   -webkit-filter: brightness(60%); /* Safari */
   filter: brightness(60%);
   height:30px;
+}
+input[name="goalTitle"]{
+  width:500px;
 }

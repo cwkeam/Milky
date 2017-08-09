@@ -1,0 +1,142 @@
+*{
+  box-sizing: border-box;
+}
+hr{
+  margin-top:10px;
+  width:60vw;
+  border:1px solid rgba(255,255,255,0.3);
+}
+.steps{
+  width:60vw;
+  display: block;
+  margin:auto;
+}
+.add-step{
+  border:1px solid white;
+  color:black;
+  font-size:15px;
+  height:36px;
+  padding:3px;
+  width:141px;
+  border-radius: 18px;
+  background-color:white;
+  text-align: center;
+  display: inline-block;
+  padding-right:6px;
+}
+#add-step{
+  cursor:pointer;
+}
+.add-step span{
+  height:30px;
+  line-height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+span.buttontext{
+  width:90px;
+  margin-right:5px;
+}
+img.plug{
+  width:30px !important;
+  margin-right:5px;
+  display:block;
+}
+
+#addstep:hover{
+  transition: all 250ms ease-in-out;
+  -webkit-filter: brightness(70%); /* Safari */
+  filter: brightness(70%);
+}
+.transform-button{
+  transition: all 500ms ease-in-out;
+  width:60vw;
+  visibility: visible;
+  height:150px;
+  cursor: none;
+}
+.hid{
+  position:absolute;
+  visibility: hidden;
+  cursor: default;
+  box-sizing: content-box !important;
+}
+
+.hidden{
+  visibility:hidden;
+}
+
+
+.dontworry{
+  color:white;
+  visibility: hidden;
+}
+
+.taskoption{
+  margin:10px;
+  border: 2px solid black;
+  border-radius:5px;
+  background:none;
+  padding:23px 30px;
+  font-size:23px;
+}
+.taskoption:hover{
+  background-color:black;
+  color:white;
+  transition: all 250ms ease-in-out;
+}
+
+
+ul{
+  width:100%;
+  padding:0;
+  width:60vw;
+}
+
+.stepslisteitem{
+  background-color:white;
+  padding:5px;
+  border:1px solid white;
+  border-radius:10px;
+  display: block;
+  height:50px;
+  color:white;
+  width:100%;
+  margin-bottom:5px;
+}
+
+.stepoption{
+  background-color:red;
+  border:1px solid white;
+  border-radius:10px;
+  color:white;
+  padding:10px 15px;
+  height:40px;
+  float:left;
+  width:83px;
+  text-align:center;
+}
+.course{
+  background-color:red;
+}
+.task{
+  background-color:blue;
+}
+.asktitle{
+  flex-shrink: 0;
+  display:flex;
+  flex:1;
+}
+.asktitle input{
+  height:100%;
+  padding:10px 15px;
+  border: 1px solid white;
+  border-radius:5px;
+	flex-grow:1;
+  font-size:14px;
+}
+
+.contain-buttons{
+  z-index:100;
+}

@@ -6,7 +6,9 @@
 		<link rel="stylesheet" href="/public/jquery.fullPage.css"/>
 		<link rel="stylesheet" href="/public/style.css"/>
 		<link rel="stylesheet" href="/public/section2.css"/>
-		<link rel="stylesheet" href="/public/slide1.css"/>
+		<link rel="stylesheet" href="/public/slide12.css"/>
+		<link rel="stylesheet" href="/public/slide3.css"/>
+		<link rel="stylesheet" href="/public/linkslide.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
@@ -17,7 +19,7 @@
 						<div class="slide" data-anchor="slide1">
 							<div class="containform">
 								<h2>What's your name?</h2>
-								<input class="nameinput" type="text" placeholder="John Doe"/>
+								<input name="username" class="nameinput" type="text" placeholder="John Doe"/>
 								<div class="contain-buttons">
 									<a id="firsta" class="navigationa next"><img src="/public/buttonnext.png"/></a>
 								</div>
@@ -25,16 +27,53 @@
 						</div>
 						<div class="slide" data-anchor="slide2">
 							<div class="containform">
-								<h2>What's your bruh?</h2>
-								<input class="nameinput" type="text" placeholder="John Doe"/>
+								<h2>Title your goal:</h2>
+								<input name="goalTitle" class="nameinput" type="text" placeholder="Become a proficient MEAN stack developer!"/>
 								<div class="contain-buttons">
 									<a id="firstback" class="navigationa back"><img src="/public/buttonback.png"/></a>
 									<a class="navigationa next"><img src="/public/buttonnext.png"/></a>
 								</div>
 							</div>
 						</div>
-						<div class="slide"> Slide 3 </div>
-						<div class="slide"> Slide 4 </div>
+						<div class="slide" data-anchor="slide3">
+							<div class="containform">
+								<h2>What are some steps towards achieving your goal?</h2>
+								<hr/>
+								<div class="steps">
+									<ul id="stepslist" class="steps-list"></ul>
+									<button id="addstep" class="add-step"><span><img class="plug" src="/public/plus.png"/></span><span class="buttontext">Add a step</span></button>
+									<div class="hid add-step">
+										<div class="hidden">
+											<h3>What kind of step is this?</h3>
+											<button id="course" class="taskoption">Course</button>
+											<button id="task" class="taskoption">Task</button>
+										</div>
+									</div>
+									<p class="dontworry">No rush. You can add more later on!</p>
+								</div>
+								<div id="containbuttonsspec" class="contain-buttons">
+									<a id="firstback" class="navigationa back"><img src="/public/buttonback.png"/></a>
+									<a class="navigationa next"><img src="/public/buttonnext.png"/></a>
+								</div>
+							</div>
+						</div>
+						<div class="slide" data-anchor="slide2">
+							<div class="containform">
+								<h2>Lastly, choose a link to store your goal:</h2>
+								<div class="linkcontain">
+									<p class="linkp">https://milkyproject.herokuapp.com/</p>
+									<div contenteditable="true" id="linkname" class="linkp">{{uniqueLink}}</div>
+								</div>
+								<div class="contain-buttons">
+									<a id="firstback" class="navigationa back"><img src="/public/buttonback.png"/></a>
+
+								</div>
+								<div class="contain-buttons">
+									<button class="submit">Submit!</button>
+
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
