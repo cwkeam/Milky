@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
 
+const randomstring = require('randomstring');
+
+
 const Link = require('./../models/openlinks');
 
 
 router.get('/', (req, res) => {
 	res.render('index',{
-		uniqueLink: 'nodejs'
+		uniqueLink: randomstring.generate({
+			length: 5,
+  	charset: 'alphabetic',
+		capitalization:'lowercase'
+		})
 	});
 });
 router.post('/', (req,res) => {

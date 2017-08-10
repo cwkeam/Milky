@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+*{
+  box-sizing: border-box;
+}
+body{
+  padding:0;
+  margin:0;
+  font-family: 'Raleway';
+}
+.dotted {
+  background-image: -webkit-repeating-radial-gradient(center center, rgba(240,240,240,1), rgba(240,240,240,1) 1px, transparent 1px, transparent 100%);
+  background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  -webkit-background-size: 3px 3px;
+  -moz-background-size: 3px 3px;
+  background-size: 17px 17px;
+}
+
+
+
+
+.realtop{
+  position:fixed;
+  display:flex;
+  z-index:5;
+  top:0;
+  width:100%;
+}
+.top{
+  display:flex;
+  height:100px;
+  color:white;
+  width:100%;
+}
+.titleBar{
+  display:flex;
+  flex:1;
+  flex-grow: 1;
+  width:100%;
+  background-color:#33374f;
+  margin-right:30px;
+  padding:10px;
+  padding-left:80px;
+  border-bottom-right-radius: 30px;
+}
+.titleBar h1{
+  font-weight: 100;
+  flex:1;
+  flex-grow: 1;
+}
+.logodiv{
+  padding:20px;
+  padding-top:30px;
+  background-color:#33374f;
+  margin-right:30px;
+  display:inline-block;
+  clear:left;
+  height:110px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.logo{
+  display: block;
+  max-width:80px;
+  max-height:65px;
+
+}
+
+
+/* Add Step */
+
+.addStepDiv{
+  width:100px;
+  height:100%;
+  color:white;
+  font-weight:100;
+  text-align: center;
+  float:right;
+  right:0;
+  color:white;
+  margin-top:10px;
+  margin-right:10px;
+}
+.plusimg{
+  width:35px;
+  height:30px;
+  display: block;
+  filter: brightness(190%);
+  margin:auto;
+}
+.addStepDiv p {
+  margin:0;
+  margin-bottom:10px;
+}
+
+
+/*  Main page */
+
+.contain-main-content{
+  margin-top:90px;
+  padding:80px;
+  overflow: scroll;
+}
+
+/* Progress bar */
+.progressbar-heading{
+  font-weight:100;
+  font-size:20px;
+  color:#bcbdc5;
+  letter-spacing: 1px;
+}
+.progressbar{
+  padding:0;
+  background-color:#bcbdc5;
+  width:100%;
+  height:40px;
+}
+.finished-progressbar{
+  width:70%;
+  background-color:#727485;
+  text-align: center;
+  height:100%;
+  position:relative;
+}
+.finished-progressbar p{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:100%;
+  margin:0;
+  height:40px;
+  line-height: 40px;
+  vertical-align: middle;
+  color:white;
+}
+
+/* Step containers */
+.containsteps{
+  margin-top:60px;
+}
+.contain-step{
+  display:block;
+  margin:auto;
+  width:300px;
+  height:240px;
+  padding:20px;
+  border:1px solid #bcbdc5;
+  border-radius:20px;
+}
+.col-md-4{
+  margin-bottom:40px;
+}
+.containtitle{
+  padding:0 40px;
+}
+h3.containsteps-titleofstep{
+  padding:4px 0;
+  color:grey;
+  display: block;
+  width:100%;
+  margin:auto;
+  border-top:1px solid grey;
+  border-bottom:1px solid grey;
+  font-weight:200;
+  text-align: center;
+}
+.task-description{
+  color:grey;
+  margin-top:20px;
+  font-weight:100;
+}
+
+/* -- contain-buttons  */
+.contain-buttons{
+  position:absolute;
+  bottom:20px;
+  margin-left:10px;
+}
+
+.display-button{
+  width:100px;
+  padding:10px;
+  font-weight:200;
+  font-size:15px;
+  border:none;
+  border-radius:10px;
+}
+.display-type-button{
+  color:white;
+}
+.display-status-button{
+  width:110px;
+  margin-left:20px;
+  font-weight:100;
+  border:0.5px solid black;
+}
+.display-course-button{
+  background-color:#5caba4;
+}
+.display-task-button{
+  background-color:#cb6f4d;
+}
+.display-milestone-button{
+  background-color:#c4aa4e;
+}
+.display-start-button{
+  background-color:#e7f5e8;
+}

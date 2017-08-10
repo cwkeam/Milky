@@ -1,3 +1,17 @@
+@media(max-width:1000px){
+  p.des{
+    padding: 0 15vw;
+  }
+}
+@media(max-width:720px){
+  p.des{
+    padding: 0 10vw;
+  }
+  button.getstarted{
+    margin-top:25px;
+    font-size:15px;
+  }
+}
 @media(max-width:600px){
   .containform{
     margin-top:20vh;
@@ -31,6 +45,25 @@
     margin-top:20px;
   }
   p.dontworry{
-    font-siz:12px;
+    font-size:13px;
+  }
+  button.getstarted{
+    margin-top:20px;
+    font-size:12px;
+  }
+  p.des{
+    margin-top:30px;
+    font-size:10px;
+    padding: 0 10vw;
+  }
+  img.logo{
+    width:90px;
+    height:67.5px;
+    margin-top:30px;
+  }
+}
+@media(max-width:550px){
+  p.des{
+    font-size:10px;
   }
 }
