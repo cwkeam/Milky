@@ -47,10 +47,10 @@ io.on('connection', (socket) => {
 					}
 				});
 			}else{
-				socket.emit('choose new link');
+				socket.emit('taken');
 			}
 			if(err){
-				res.render('dashboard', {existing:err});
+				socket.emit('err');
 			}
 		});
 

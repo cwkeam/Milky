@@ -31,8 +31,14 @@ $('.submit').click(function(e){
     requestingUrl:requestingUrl
   });
   $('p.loading').css('display', 'block');
+  $('p.loading').toggleClass('.pulseAnimate');
 });
-
+socket.on('taken', function(){
+  $('p.loading').text('This url is taken.');
+});
+socket.on('err', function(){
+  $('p.loading').text('An error has occured.');
+})
 socket.on('redirect', function(url){
   window.location.href = url.url;
 });
