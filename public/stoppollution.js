@@ -30,6 +30,7 @@ $('.submit').click(function(e){
     stepsArray:stepsArray,
     requestingUrl:requestingUrl
   });
+  $('p.loading').css('display', 'block');
 });
 
 socket.on('redirect', function(url){

@@ -174,6 +174,21 @@ function appendStep(stepType, place, id){
 	return newStep;
 }
 
+$('.delete').click(function(event){
+	console.log(this.id);
+});
+
+$(document).on('click','.delete', function(e){
+	$('#'+$(e.currentTarget).parent().parent()[0].id).remove();
+	clicked--;
+	if(clicked<3){
+		restorePlus(true);
+		$('.dontworry').css('visibility', 'hidden');
+	}
+});
+
+
+
 $(document).keypress(function(e) {
     if(e.which == 13 && inFirstPage) {
         $.fn.fullpage.moveSlideRight();

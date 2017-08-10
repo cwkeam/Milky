@@ -29,6 +29,7 @@ button.submit{
   border-radius:5px;
 }
 button.submit:hover{
+  transition:all 250ms ease-in-out;
   background-color:white;
   color:black;
 }
@@ -39,7 +40,18 @@ button.submit:hover{
   text-align: center;
   width:100%;
 }
-
+p.loading{
+  padding:16px 40px;
+  font-size:17px;
+  color:white;
+  background-color:#f85c5c;
+  border:1px solid #f85c5c;
+  border-radius:10px;
+  width:40vw;
+  margin:auto;
+  margin-top:40px;
+  display:none;
+}
 
 .ornament{
   text-decoration: none;
