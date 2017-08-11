@@ -18,12 +18,7 @@ var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
 
-
-
-
-
 io.on('connection', (socket) => {
-	console.log('connected');
 	socket.on('sendForm', function(doc){
 		var username = doc.username;
 		var goaltitle = doc.goaltitle;
@@ -38,15 +33,24 @@ io.on('connection', (socket) => {
 				});
 				var newLink = new Link({
 					url:requestingUrl,
-					username:username,
-					steps:stepsArray
+					username,
+					goaltitle
 				});
-				newLink.save((err)=>{
-					if(err){
-						console.log(err);
-					}else{
-						console.log('succesfully saved link');
+
+				function loopThrough(callback) {
+					for(var i=0; i<stepsArray.length; i++){
+						newLink.steps.push({type: stepsArray[i].type, description: stepsArray[i].input});
 					}
+					callback();
+				}
+				loopThrough(()=>{
+					newLink.save((err)=>{
+						if(err){
+							console.log(err);
+						}else{
+							console.log('succesfully saved link');
+						}
+					});
 				});
 			}else{
 				socket.emit('taken');
@@ -55,12 +59,6 @@ io.on('connection', (socket) => {
 				socket.emit('err');
 			}
 		});
-
-
-
-
-
-
 	});
 });
 

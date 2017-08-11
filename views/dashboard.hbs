@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
-    <title>Milky | Chan's goal</title>
+    <title>Milky | {{username}}'s goal</title>
     <link rel="stylesheet" href="/public/dash/main.css" />
     <link rel="stylesheet" href="/public/dash/bootstrap.min.css"/>
   </head>
@@ -11,7 +11,7 @@
     <div class="realtop">
       <div class="top">
         <div class="titleBar">
-          <h1>Hi Katie, your goal is to get fat.</h1>
+          <h1>Hi {{username}}, your goal is {{title}}.</h1>
           <div class="stepDiv deleteDiv">
             <p>DELETE</p>
             <img class="plusimg" src="/public/plus2.png"/>
@@ -36,63 +36,33 @@
           <p>70%</p>
         </div>
       </div>
-
       <!-- Steps containers -->
       <div class="row containsteps">
-        <div class="col-md-4">
-          <div class="contain-step">
-            <img src="/public/dash/delete.png" class="delete-step displaychange" />
-            <div class="containtitle">
-              <h3 id="1title" contenteditable="true" class="containsteps-titleofstep">
-                ENTER A TITLE
-              </h3>
-            </div>
-            <p id="1content" contenteditable="true" class="task-description">
-              Enter a description about this step.
-            </p>
-            <div class="contain-buttons">
-              <button class="display-button display-type-button display-course-button">Course</button>
-              <button class="display-button display-status-button display-start-button">START</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="contain-step">
-            <img src="/public/dash/delete.png" class="delete-step displaychange" />
-            <div class="containtitle">
-              <h3 class="containsteps-titleofstep">
-                TITLE OF STEP
-              </h3>
-            </div>
-            <p class="task-description">
-              Enter a description about this step.
-            </p>
-            <div class="contain-buttons">
-              <button class="display-button display-type-button display-task-button">Task</button>
-              <button class="display-button display-status-button display-start-button">START</button>
+        {{#each stepsDOMArray}}
+          <div id="{{@index}}step" class="col-md-4">
+            <div class="contain-step">
+              <img src="/public/dash/delete.png" class="delete-step displaychange" />
+              <div class="containtitle">
+                <h3 id="{{@index}}title" contenteditable="true" class="containsteps-titleofstep">
+                  {{this.description}}
+                </h3>
+              </div>
+              <p id="{{@index}}content" contenteditable="true" class="task-description">
+                Enter a description about this step.
+              </p>
+              <div class="contain-buttons">
+                <button class="display-button display-type-button display-{{this.type}}-button">{{this.type}}</button>
+                <button class="display-button display-status-button display-start-button">START</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="contain-step">
-            <img src="/public/dash/delete.png" class="delete-step displaychange" />
-            <div class="containtitle">
-              <h3 class="containsteps-titleofstep">
-                TITLE OF STEP
-              </h3>
-            </div>
-            <p class="task-description">
-              Enter a description about this step.
-            </p>
-            <div class="contain-buttons">
-              <button class="display-button display-type-button display-milestone-button">Milestone</button>
-              <button class="display-button display-status-button display-start-button">START</button>
-            </div>
-          </div>
-        </div>
+        {{/each}}
       </div>
+
     </div>
+
     <script type="text/javascript" src="/public/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/public/dash/bootstrap.min.js"></script>
     <script type="text/javascript" src="/public/dash/jq.js"></script>
   </body>

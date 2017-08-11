@@ -1,3 +1,6 @@
+var howManySteps = $('.containsteps').length;
+console.log(howManySteps);
+
 $('.containsteps-titleofstep').blur(function(){
   var id = this.id;
   if($('#'+id).text() == ''){
@@ -11,11 +14,11 @@ $('.task-description').blur(function(){
   }
 });
 
-
 // Add step
 $('.addStepDiv').click(function(){
+  console.log('clickewd addstep');
   var onestep = `
-  <div class="col-md-4">
+  <div id="${howManySteps+1}step" class="col-md-4">
     <div class="contain-step">
       <img src="/public/dash/delete.png" class="delete-step displaychange" />
       <div class="containtitle">
@@ -34,14 +37,22 @@ $('.addStepDiv').click(function(){
   </div>
   `;
   $('.containsteps').append(onestep);
+  howManySteps++;
+});
+//delete step
+
+
+$(document).on('click','.delete-step', function(e){
+  $('#'+$(e.currentTarget).parent().parent()[0].id).remove();
 });
 
 $('.deleteDiv').click(function(){
   $('.contain-step').toggleClass('shakeclass');
   $('.delete-step').toggleClass('displaychange');
   $('.deleteDiv').toggleClass('clicked');
+  $('.addStepDiv').click(false);
+  $('.addStepDiv').css('cursor', 'auto');
 });
-
 $('.clicked').click(function(){
   $('.contain-step').removeClass('shakeclass');
   $('.delete-step').removeClass('displaychange');

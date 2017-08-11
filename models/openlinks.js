@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 var content = new Schema({
   type: String,
-  description: String,
-  progress: Number
+  description: String
 });
 
 var link = new Schema({
@@ -12,6 +11,9 @@ var link = new Schema({
     type:String,
     required:true,
     unique:true
+  },
+  goaltitle:{
+    type:String
   },
   username:{
     type:String

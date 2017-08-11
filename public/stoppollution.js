@@ -16,11 +16,10 @@ $('.submit').click(function(e){
     var type = $(this).children('.stepoption').children('span').text();
     var inputtext = $(this).children('.asktitle').children('input').val();
     stepsArray.push(
-      [{
-        type: type
-      },{
+      {
+        type: type,
         input: inputtext
-      }]
+      }
     );
   });
   var requestingUrl = $('#linkname').text();
