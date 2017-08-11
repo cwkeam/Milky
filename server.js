@@ -10,7 +10,8 @@ const mongoose = require('mongoose');
 const Link = require('./models/openlinks');
 
 
-mongoose.connect('mongodb://cwkeam:76424you@ds147821.mlab.com:47821/milky');
+mongoose.connect('mongodb://localhost:/milky');
+// 'mongodb://cwkeam:76424you@ds147821.mlab.com:47821/milky'
 var port = process.env.PORT || 8000;
 
 var app = express();
