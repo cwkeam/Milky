@@ -17,7 +17,7 @@ $('.addStepDiv').click(function(){
   var onestep = `
   <div class="col-md-4">
     <div class="contain-step">
-      <img src="/public/dash/delete.png" class="delete-step" />
+      <img src="/public/dash/delete.png" class="delete-step displaychange" />
       <div class="containtitle">
         <h3 id="1title" contenteditable="true" class="containsteps-titleofstep">
           ENTER A TITLE
