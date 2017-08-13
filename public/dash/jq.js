@@ -221,6 +221,9 @@ function checkProgress(){
   var howmany = $('.col-md-4').length;
   var finished = $('.display-finished-button').length;
   var percent = (finished/howmany)*100;
+  if(isNaN(percent)){
+    percent = 0;
+  }
   percent = parseInt(percent);
   if(percent !== 0){
     $('.finished-progressbar').removeClass('none');

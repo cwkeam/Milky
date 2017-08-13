@@ -55,7 +55,7 @@ router.get('/:link', (req,res) => {
 		url: requestedLink
 	}, (err, url) => {
 		if (!url){
-			res.render('dashboard',{
+			res.render('newlink',{
 				existing:'make a new one?'
 			});
 		}else{
@@ -72,6 +72,14 @@ router.get('/:link', (req,res) => {
 			});
 		}
 	});
+});
+router.post('/:link', (req,res) => {
+	var requestedLink = req.params.link;
+	var newlink = new Link({
+		url:requestedLink
+	});
+	newlink.save();
+	res.redirect(requestedLink);
 });
 
 module.exports = router;
