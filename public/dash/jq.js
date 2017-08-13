@@ -4,6 +4,9 @@ var howManySteps = $('.col-md-4').length+1;
 
 $(document).ready(function(){
   checkProgress();
+  if($('#name').text() == '' || $('#goal').text() == ''){
+    $('.alert').css('display', 'block');
+  }
 });
 $(document).on('focus click','.containsteps-titleofstep', function(){
   var id = this.id;
@@ -243,5 +246,8 @@ $(document).on('blur', '.edittitle', function(e){
     url:window.location.pathname.replace('/',''),
     type: type,
     changedTo: change
-  })
+  });
+  if(change !== ''){
+    $('.alert').css('display','none');
+  }
 });

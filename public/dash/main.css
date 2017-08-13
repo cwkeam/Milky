@@ -56,6 +56,29 @@ body{
 #goal{
   text-transform: lowercase;
 }
+.alert{
+  position:absolute;
+  margin-top:10px;
+  margin-left:80px;
+  padding:10px 15px !important;
+  font-size:15px;
+  color:white;
+  background-color:#ff5656;
+  animation: pulse 2s infinite;
+  display:none;
+}
+
+@keyframes pulse {
+  0%{
+    transform: scale(1,1);
+  }
+  50%{
+    transform: scale(1.05, 1.05);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
 .logodiv{
   padding:20px;
   padding-top:30px;
