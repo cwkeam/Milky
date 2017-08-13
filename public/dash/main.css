@@ -188,7 +188,21 @@ p.task-description{
   height:85px;
   overflow-y:scroll;
 }
+.loadingimg{
+  display:block;
+  margin:auto;
+  width:50px;
+  height:50px;
+  margin-top:68px;
+  animation: spin 1s infinite linear;
+}
 
+@-webkit-keyframes spin {
+  0%   {-webkit-transform: rotate(0deg)}
+  50% {-webkit-transform: rotate(-250deg)}
+  100% {-webkit-transform: rotate(-360deg)}
+}
+@keyframes rotate{}
 
 /* -- contain-buttons  */
 .contain-buttons{

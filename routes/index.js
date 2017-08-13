@@ -50,12 +50,6 @@ router.get('/:link', (req,res) => {
 			});
 		}else{
 			steps = url.steps;
-			var stepsDOMArray = [];
-
-			console.log(url.username);
-			console.log(url.title);
-
-
 			res.render('dashboard', {
 				username: url.username,
 				title: url.goaltitle,

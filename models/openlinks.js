@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 var content = new Schema({
   type: String,
-  description: String
+  description: String,
+  index:Number,
+  longdescription: String
 });
 
 var link = new Schema({

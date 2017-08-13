@@ -28,7 +28,6 @@
 
     </div>
 
-
     <div class="contain-main-content">
       <h2 class="progressbar-heading">PROGRESS BAR</h2>
       <div class="progressbar">
@@ -39,17 +38,13 @@
       <!-- Steps containers -->
       <div class="row containsteps">
         {{#each stepsDOMArray}}
-          <div id="{{@index}}step" class="col-md-4">
+          <div id="{{this.index}}step" class="col-md-4">
             <div class="contain-step">
               <img src="/public/dash/delete.png" class="delete-step displaychange" />
               <div class="containtitle">
-                <h3 id="{{@index}}title" contenteditable="true" class="containsteps-titleofstep">
-                  {{this.description}}
-                </h3>
+                <h3 id="{{this.index}}title" contenteditable="true" class="containsteps-titleofstep">{{this.description}}</h3>
               </div>
-              <p id="{{@index}}content" contenteditable="true" class="task-description">
-                Enter a description about this step.
-              </p>
+              <p id="{{this.index}}content" contenteditable="true" class="task-description">{{this.longdescription}}</p>
               <div class="contain-buttons">
                 <button class="display-button display-type-button display-{{this.type}}-button">{{this.type}}</button>
                 <button class="display-button display-status-button display-start-button">START</button>
@@ -57,6 +52,7 @@
             </div>
           </div>
         {{/each}}
+
       </div>
 
     </div>

@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const Link = require('./models/openlinks');
 
 
-mongoose.connect('mongodb://cwkeam:76424you@ds147821.mlab.com:47821/milky');
+mongoose.connect(process.env.MONGODB_URL);
 //
 var port = process.env.PORT || 8000;
 
@@ -28,18 +28,14 @@ io.on('connection', (socket) => {
 			url: requestingUrl
 		}, function(err, link){
 			if(!link){
-				socket.emit('redirect', {
-					url:requestingUrl
-				});
 				var newLink = new Link({
 					url:requestingUrl,
 					username,
 					goaltitle
 				});
-
 				function loopThrough(callback) {
 					for(var i=0; i<stepsArray.length; i++){
-						newLink.steps.push({type: stepsArray[i].type, description: stepsArray[i].input});
+						newLink.steps.push({type: stepsArray[i].type, description: stepsArray[i].input, index: i+1});
 					}
 					callback();
 				}
@@ -52,11 +48,73 @@ io.on('connection', (socket) => {
 						}
 					});
 				});
+				socket.emit('redirect', {
+					url:requestingUrl
+				});
 			}else{
 				socket.emit('taken');
 			}
 			if(err){
 				socket.emit('err');
+			}
+		});
+	});
+
+
+	// add steps
+	socket.on('addStepDiv',(doc)=>{
+		Link.findOne({
+			url:doc.url
+		},(err, dbdoc) => {
+			if(dbdoc){
+				dbdoc.steps.push({type:'course', description:'enter a title', index:doc.index});
+				dbdoc.save((err) => {
+			    if (err) return handleError(err);
+					socket.emit('addStepDiv complete');
+				});
+
+			}else{
+				console.log('else');
+			}
+			if(err){
+				console.log('eerr');
+			}
+		});
+	});
+	socket.on('deleteStepDiv', (doc) => {
+		Link.update({
+			url:doc.url
+		},{$pull:{
+			steps: { index: doc.index }
+		}},()=>{
+			socket.emit('deleteStepDiv completed',{
+				index:doc.index
+			});
+		});
+	});
+	socket.on('save input', (doc) => {
+		Link.findOne({
+			url:doc.url
+		}, (err, dbdoc)=>{
+			if(err){
+				return console.log('err');
+			}
+			if(!doc){
+				return console.log('!doc');
+			}
+			if(doc){
+				if(doc.type == 'title description'){
+					dbdoc.steps[doc.index].description = doc.text;
+					dbdoc.save((err) => {
+				    if (err) return handleError(err);
+					});
+				}
+				if(doc.type == 'long description'){
+					dbdoc.steps[doc.index].longdescription = doc.text;
+					dbdoc.save((err) => {
+				    if (err) return handleError(err);
+					});
+				}
 			}
 		});
 	});
