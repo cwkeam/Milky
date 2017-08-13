@@ -25,6 +25,8 @@ $(document).on('blur','.containsteps-titleofstep',function(){
       }
       return i;
   };
+  console.log(getChildIndex(this));
+
   socket.emit('save input', {
     url: window.location.pathname.replace('/',''),
     //fix vulnerability here
@@ -130,4 +132,75 @@ $('.clicked').click(function(){
   $('.contain-step').removeClass('shakeclass');
   $('.delete-step').removeClass('displaychange');
   $('.deleteDiv').removeClass('.clicked');
+});
+
+//display-status-button
+$(document).on('click', '.display-status-button', function(e){
+  if($(e.currentTarget).text() == 'start'){
+    $(e.currentTarget).text('in progress');
+    $(e.currentTarget).removeClass('display-start-button');
+    $(e.currentTarget).toggleClass('display-progress-button');
+  }else if($(e.currentTarget).text() == 'in progress'){
+    $(e.currentTarget).text('finished');
+    $(e.currentTarget).removeClass('display-progress-button');
+    $(e.currentTarget).toggleClass('display-finished-button');
+  }else if($(e.currentTarget).text() == 'finished'){
+    $(e.currentTarget).text('start');
+    $(e.currentTarget).removeClass('display-finished-button');
+    $(e.currentTarget).toggleClass('display-start-button');
+  }
+});
+$(document).on('blur', '.display-status-button', function(e){
+  var index = $(e.currentTarget).parent().parent().parent().attr('id').slice(0,1);
+  var getChildIndex = function(child){
+    var parent = child.parentNode.parentNode.parentNode.parentNode;
+    var i = parent.children.length - 1;
+    var incomechild = child.parentNode.parentNode.parentNode;
+      for (; i >= 0; i--){
+          if (incomechild == parent.children[i]){
+              break;
+          }
+      }
+      return i;
+  };
+  socket.emit('changing status', {
+    url: window.location.pathname.replace('/',''),
+    index:getChildIndex(this),
+    changedTo:$(e.currentTarget).text()
+  });
+});
+//change courses
+$(document).on('click', '.display-type-button', function(e){
+  if($(e.currentTarget).text() == 'course'){
+    $(e.currentTarget).text('task');
+    $(e.currentTarget).removeClass('display-course-button');
+    $(e.currentTarget).toggleClass('display-task-button');
+  }else if($(e.currentTarget).text() == 'task'){
+    $(e.currentTarget).text('milestone');
+    $(e.currentTarget).removeClass('display-task-button');
+    $(e.currentTarget).toggleClass('display-milestone-button');
+  }else if($(e.currentTarget).text() == 'milestone'){
+    $(e.currentTarget).text('course');
+    $(e.currentTarget).removeClass('display-milestone-button');
+    $(e.currentTarget).toggleClass('display-course-button');
+  }
+});
+$(document).on('blur', '.display-type-button', function(e){
+  var index = $(e.currentTarget).parent().parent().parent().attr('id').slice(0,1);
+  var getChildIndex = function(child){
+    var parent = child.parentNode.parentNode.parentNode.parentNode;
+    var i = parent.children.length - 1;
+    var incomechild = child.parentNode.parentNode.parentNode;
+      for (; i >= 0; i--){
+          if (incomechild == parent.children[i]){
+              break;
+          }
+      }
+      return i;
+  };
+  socket.emit('changing course', {
+    url: window.location.pathname.replace('/',''),
+    index:getChildIndex(this),
+    changedTo:$(e.currentTarget).text()
+  });
 });

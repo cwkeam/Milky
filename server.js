@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
 				});
 				function loopThrough(callback) {
 					for(var i=0; i<stepsArray.length; i++){
-						newLink.steps.push({type: stepsArray[i].type, description: stepsArray[i].input, index: i+1});
+						newLink.steps.push({type: stepsArray[i].type, description: stepsArray[i].input, index: i+1, status:'start'});
 					}
 					callback();
 				}
@@ -60,6 +60,37 @@ io.on('connection', (socket) => {
 		});
 	});
 
+	//changing courses
+	socket.on('changing course', (doc) => {
+		Link.findOne({
+			url:doc.url
+		},(err, dbdoc) => {
+			if(dbdoc){
+				dbdoc.steps[doc.index].type = doc.changedTo;
+				dbdoc.save((err) => {
+					if (err) return handleError(err);
+				});
+			}
+		});
+	});
+	socket.on('changing status', (doc)=>{
+		var changedTo = '';
+		if (doc.changedTo = 'in progress'){
+			changedTo = 'progress';
+		}else{
+			changedTo = doc.changedTo;
+		}
+		Link.findOne({
+			url:doc.url
+		},(err, dbdoc) => {
+			if(dbdoc){
+				dbdoc.steps[doc.index].status = changedTo;
+				dbdoc.save((err) => {
+				});
+			}
+		});
+	});
+
 
 	// add steps
 	socket.on('addStepDiv',(doc)=>{
@@ -67,12 +98,11 @@ io.on('connection', (socket) => {
 			url:doc.url
 		},(err, dbdoc) => {
 			if(dbdoc){
-				dbdoc.steps.push({type:'course', description:'enter a title', index:doc.index});
+				dbdoc.steps.push({type:'course', description:'enter a title', index:doc.index, status: 'start'});
 				dbdoc.save((err) => {
 			    if (err) return handleError(err);
 					socket.emit('addStepDiv complete');
 				});
-
 			}else{
 				console.log('else');
 			}

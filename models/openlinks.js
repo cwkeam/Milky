@@ -5,7 +5,8 @@ var content = new Schema({
   type: String,
   description: String,
   index:Number,
-  longdescription: String
+  longdescription: String,
+  status: String
 });
 
 var link = new Schema({

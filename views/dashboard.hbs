@@ -11,7 +11,7 @@
     <div class="realtop">
       <div class="top">
         <div class="titleBar">
-          <h1>Hi {{username}}, your goal is {{title}}.</h1>
+          <h1>Hi {{username}}, your goal is to <span class="titlespan">{{title}}</span>.</h1>
           <div class="stepDiv deleteDiv">
             <p>DELETE</p>
             <img class="plusimg" src="/public/plus2.png"/>
@@ -25,9 +25,7 @@
           <img class="logo" src="/public/logo.png" />
         </div>
       </div>
-
     </div>
-
     <div class="contain-main-content">
       <h2 class="progressbar-heading">PROGRESS BAR</h2>
       <div class="progressbar">
@@ -47,14 +45,12 @@
               <p id="{{this.index}}content" contenteditable="true" class="task-description">{{this.longdescription}}</p>
               <div class="contain-buttons">
                 <button class="display-button display-type-button display-{{this.type}}-button">{{this.type}}</button>
-                <button class="display-button display-status-button display-start-button">START</button>
+                <button class="display-button display-status-button display-{{this.status}}-button">{{inProgressCheck this.status}}</button>
               </div>
             </div>
           </div>
         {{/each}}
-
       </div>
-
     </div>
 
     <script type="text/javascript" src="/public/jquery-3.2.1.js"></script>

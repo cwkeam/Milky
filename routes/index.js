@@ -1,11 +1,21 @@
 const express = require('express');
 const router = express.Router();
-
+const hbs = require('hbs');
 const randomstring = require('randomstring');
 
 
 const Link = require('./../models/openlinks');
 
+hbs.registerHelper("inProgressCheck", (status) => {
+	if(status == 'progress'){
+		console.log('if!!!!' + status);
+		return 'in progress';
+	}else{
+		console.log('else!!!!!' + status)
+		return status
+
+	}
+});
 
 router.get('/', (req, res) => {
 	var uniqueLink = randomstring.generate({
