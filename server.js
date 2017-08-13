@@ -19,6 +19,7 @@ var server = http.createServer(app);
 var io = socketIO(server);
 
 io.on('connection', (socket) => {
+
 	socket.on('sendForm', function(doc){
 		var username = doc.username;
 		var goaltitle = doc.goaltitle;

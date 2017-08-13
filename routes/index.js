@@ -13,7 +13,6 @@ hbs.registerHelper("inProgressCheck", (status) => {
 	}else{
 		console.log('else!!!!!' + status)
 		return status
-
 	}
 });
 
@@ -55,16 +54,14 @@ router.get('/:link', (req,res) => {
 		url: requestedLink
 	}, (err, url) => {
 		if (!url){
-			res.render('newlink',{
-				existing:'make a new one?'
-			});
+			res.render('newlink');
 		}else{
 			steps = url.steps;
 			res.render('dashboard', {
 				username: url.username,
 				title: url.goaltitle,
 				stepsDOMArray: steps
-		 });
+			});
 		}
 		if(err){
 			res.render('dashboard', {

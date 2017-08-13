@@ -1,5 +1,8 @@
 var socket = io();
-var howManySteps = $('.col-md-4').length+1;
+
+var howManySteps = 1;
+
+
 
 
 $(document).ready(function(){
@@ -7,6 +10,9 @@ $(document).ready(function(){
   if($('#name').text() == '' || $('#goal').text() == ''){
     $('.alert').css('display', 'block');
   }
+
+  howManySteps = $('.col-md-4:last-child').attr('id').slice(0,1);
+  console.log(howManySteps);
 });
 $(document).on('focus click','.containsteps-titleofstep', function(){
   var id = this.id;
@@ -108,6 +114,9 @@ socket.on('addStepDiv complete', function(){
   $('.containsteps').append(onestep);
   howManySteps++;
   checkProgress();
+  if(deleteClicked == true){
+    startdelete();
+  }
 
 });
 //delete step
@@ -129,18 +138,23 @@ socket.on('deleteStepDiv completed', function(doc){
   checkProgress();
 
 });
-
+var deleteClicked = false;
 $('.deleteDiv').click(function(){
+  startdelete();
+});
+function startdelete(){
   $('.contain-step').toggleClass('shakeclass');
   $('.delete-step').toggleClass('displaychange');
   $('.deleteDiv').toggleClass('clicked');
-  $('.addStepDiv').click(false);
   $('.addStepDiv').css('cursor', 'auto');
-});
+  deleteClicked = true;
+}
 $('.clicked').click(function(){
+  $('#clickElement').on('click')
   $('.contain-step').removeClass('shakeclass');
   $('.delete-step').removeClass('displaychange');
   $('.deleteDiv').removeClass('.clicked');
+  deleteClicked = false;
 });
 
 //display-status-button
