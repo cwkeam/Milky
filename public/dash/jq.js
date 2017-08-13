@@ -114,9 +114,9 @@ socket.on('addStepDiv complete', function(){
   $('.containsteps').append(onestep);
   howManySteps++;
   checkProgress();
-  if(deleteClicked == true){
-    startdelete();
-  }
+  // if(deleteClicked == true){
+  //   startdelete();
+  // }
 
 });
 //delete step
