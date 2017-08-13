@@ -2,7 +2,9 @@ var socket = io();
 var howManySteps = $('.col-md-4').length+1;
 
 
-
+$(document).ready(function(){
+  checkProgress();
+});
 $(document).on('focus click','.containsteps-titleofstep', function(){
   var id = this.id;
   if($('#'+id).text() == "enter a title"){
@@ -25,7 +27,6 @@ $(document).on('blur','.containsteps-titleofstep',function(){
       }
       return i;
   };
-  console.log(getChildIndex(this));
 
   socket.emit('save input', {
     url: window.location.pathname.replace('/',''),
@@ -95,14 +96,16 @@ socket.on('addStepDiv complete', function(){
       </div>
       <p id="${howManySteps}content" contenteditable="true" class="task-description">Enter a description about this step.</p>
       <div class="contain-buttons">
-        <button class="display-button display-type-button display-course-button">Course</button>
-        <button class="display-button display-status-button display-start-button">START</button>
+        <button class="display-button display-type-button display-course-button">course</button>
+        <button class="display-button display-status-button display-start-button">start</button>
       </div>
     </div>
   </div>
   `;
   $('.containsteps').append(onestep);
   howManySteps++;
+  checkProgress();
+
 });
 //delete step
 $(document).on('click','.delete-step', function(e){
@@ -116,9 +119,12 @@ $(document).on('click','.delete-step', function(e){
     url:window.location.pathname.replace('/',''),
     index:parentid.slice(0,1)
   });
+
 });
 socket.on('deleteStepDiv completed', function(doc){
   $('#'+doc.index+'step').remove();
+  checkProgress();
+
 });
 
 $('.deleteDiv').click(function(){
@@ -168,6 +174,8 @@ $(document).on('blur', '.display-status-button', function(e){
     index:getChildIndex(this),
     changedTo:$(e.currentTarget).text()
   });
+  checkProgress();
+
 });
 //change courses
 $(document).on('click', '.display-type-button', function(e){
@@ -203,4 +211,25 @@ $(document).on('blur', '.display-type-button', function(e){
     index:getChildIndex(this),
     changedTo:$(e.currentTarget).text()
   });
+  checkProgress();
 });
+
+
+console.log($('.display-finished-button').length);
+
+function checkProgress(){
+  var howmany = $('.col-md-4').length;
+  var finished = $('.display-finished-button').length;
+  var percent = (finished/howmany)*100;
+  percent = parseInt(percent);
+  if(percent !== 0){
+    $('.finished-progressbar').removeClass('none');
+  }else if(percent == 0){
+    if(!$('.finished-progressbar').hasClass('none')){
+      $('.finished-progressbar').toggleClass('none');
+    }
+  }
+  console.log(percent);
+  $('.finished-progressbar > p').text(''+percent+'%');
+  $('.finished-progressbar').css('width', ''+percent+'%');
+}

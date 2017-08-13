@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const Link = require('./models/openlinks');
 
 
-mongoose.connect(process.env.MONGODB_URL);
+mongoose.connect('mongodb://localhost:/milky');
 //
 var port = process.env.PORT || 8000;
 
@@ -75,10 +75,13 @@ io.on('connection', (socket) => {
 	});
 	socket.on('changing status', (doc)=>{
 		var changedTo = '';
-		if (doc.changedTo = 'in progress'){
+		console.log(changedTo);
+
+		if (doc.changedTo =='in progress'){
 			changedTo = 'progress';
 		}else{
 			changedTo = doc.changedTo;
+			console.log(changedTo);
 		}
 		Link.findOne({
 			url:doc.url
