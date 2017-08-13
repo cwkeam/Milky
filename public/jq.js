@@ -190,7 +190,7 @@ function appendStep(stepType){
 	<li id="${id}option" class="stepslisteitem">
 		<div class="stepoption ${stepType}"><span>${stepType}</span></div>
 		<div class="asktitle">
-			<input type="text" placeholder="Title this step. ${placeholder}"></input>
+			<input type="text" maxlength="17" placeholder="Title this step. ${placeholder}"></input>
 			<img class="delete ${id}" src="/public/delete.png"/>
 		</div>
 	</li>
