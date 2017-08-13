@@ -151,6 +151,23 @@ io.on('connection', (socket) => {
 			}
 		});
 	});
+	socket.on('changing title', (doc) => {
+		Link.findOne({
+			url:doc.url
+		}, (err, dbdoc) => {
+			if(dbdoc){
+				if(doc.type == 'username'){
+					dbdoc.username = doc.changedTo;
+					dbdoc.save();
+				}
+				if(doc.type == 'goal'){
+					dbdoc.goaltitle = doc.changedTo;
+					dbdoc.save();
+				}
+
+			}
+		});
+	});
 });
 
 const publicPath = path.join(__dirname, '/public');

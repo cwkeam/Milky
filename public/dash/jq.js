@@ -213,10 +213,6 @@ $(document).on('blur', '.display-type-button', function(e){
   });
   checkProgress();
 });
-
-
-console.log($('.display-finished-button').length);
-
 function checkProgress(){
   var howmany = $('.col-md-4').length;
   var finished = $('.display-finished-button').length;
@@ -232,7 +228,20 @@ function checkProgress(){
       $('.finished-progressbar').toggleClass('none');
     }
   }
-  console.log(percent);
   $('.finished-progressbar > p').text(''+percent+'%');
   $('.finished-progressbar').css('width', ''+percent+'%');
 }
+
+$(document).on('blur', '.edittitle', function(e){
+  var change = $(e.currentTarget).text();
+  if(this.id == 'name'){
+    var type = 'username'
+  }else if(this.id == 'goal'){
+    var type = 'goal'
+  }
+  socket.emit('changing title',{
+    url:window.location.pathname.replace('/',''),
+    type: type,
+    changedTo: change
+  })
+});
