@@ -20,7 +20,6 @@ $(document).ready(function(){
 		scrollingSpeed: 2000,
 		onLeave: function(index, nextIndex, direction){
 			var leavingSection = $(this);
-			console.log(index);
 			if(index == 2 && direction == 'up'){
 				inFirstPage = true;
 			}
@@ -113,6 +112,10 @@ var clickedtwice = 0;
 var clicked = 0;
 
 
+var clickcountC = 1;
+var clickcountT = 1;
+var clickcountM = 1;
+
 $('.taskoption').click(function(e){
 	e.preventDefault();
 	clicked++;
@@ -124,22 +127,20 @@ $('.taskoption').click(function(e){
 	}
 	var whichEventId = this.id;
 	if(whichEventId == 'course'){
-		$('#stepslist').append(appendStep('course', '(Node.js introductory course)',clicked));
-		clickedctwice++;
+		$('#stepslist').append(appendStep('course'));
+		clickcountC+=1;
 	}else if(whichEventId == 'task'){
-		$('#stepslist').append(appendStep('task', '(Finish coding Milky)',clicked));
-		clickedtwice++;
+		$('#stepslist').append(appendStep('task'));
+		clickcountT+=1;
 	}else if(whichEventId == 'milestone'){
-		$('#stepslist').append(appendStep('milestone', '(50 minutes workout every day for 3 months)',clicked));
-		clickedtwice++;
+		$('#stepslist').append(appendStep('milestone'));
+		clickcountM+=1;
 	}
+
 });
 $("#revert").click(function(e){
 	restorePlus(true);
 });
-
-
-
 function restorePlus(checked){
 	$('.hid').css('position','absolute');
 	$('.hid').css('visibility','hidden');
@@ -149,19 +150,42 @@ function restorePlus(checked){
 		$('#addstep').css('display', 'inline-block');
 	}
 }
-
-function appendStep(stepType, place, id){
-	var placeholder = place;
-	if(clickedtwice == 1){
-		placeholder = '(Bicep curl 35lb)';
-	}else if(clickedtwice == 2){
-		placeholder = '(Finish coding first website)';
+function appendStep(stepType){
+	var placeholder = '';
+	if(stepType == 'course'){
+		if(clickcountC == 1){
+			placeholder = '(Node.js introductory course)';
+		}else if(clickcountC == 2){
+			placeholder = '(AngularJS introductory course)';
+		}else if(clickcountC == 3){
+			placeholder = '(Nike diet program 2017)';
+		}
 	}
-	if(clickedctwice == 1){
-		placeholder = '(AngularJS course)';
-	}else if(clickedctwice == 2){
-		placeholder = '(Python tutorial series youtube)';
+	if(stepType == 'task'){
+		if(clickcountT == 1){
+			placeholder = '(Run 5km tomorrow)';
+		}
+		if(clickcountT == 2){
+			placeholder = '(Solve math worksheets by tomorrow)';
+		}
+		if(clickcountT == 3){
+			placeholder = '(Buy a new chair)';
+		}
 	}
+	if(stepType == 'milestone'){
+		if(clickcountM == 1){
+			placeholder = '(Get to 35lb bicep curls)';
+		}
+		if(clickcountM == 2){
+			placeholder = '(Run 5km everyday for two weeks)';
+		}
+		if(clickcountM == 3){
+			placeholder = '(Final senior thesis)';
+		}
+	}
+	var id = clicked;
+	// console.log(id);
+	// console.log(stepType);
 	var newStep = `
 	<li id="${id}option" class="stepslisteitem">
 		<div class="stepoption ${stepType}"><span>${stepType}</span></div>
@@ -174,16 +198,21 @@ function appendStep(stepType, place, id){
 	return newStep;
 }
 
-$('.delete').click(function(event){
-	console.log(this.id);
-});
-
 $(document).on('click','.delete', function(e){
 	$('#'+$(e.currentTarget).parent().parent()[0].id).remove();
 	clicked--;
 	if(clicked<3){
 		restorePlus(true);
 		$('.dontworry').css('visibility', 'hidden');
+	}
+	var type = $(e.currentTarget).parent().parent().children()[0].id;
+	console.log(type);
+	if(type == 'course'){
+		clickcountC-=1;
+	}else if(type == 'task'){
+		clickcountT-=1;
+	}else if(type == 'milestone'){
+		clickcountM-=1;
 	}
 });
 
