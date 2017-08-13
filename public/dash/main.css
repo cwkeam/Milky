@@ -50,6 +50,9 @@ body{
   flex:1;
   flex-grow: 1;
 }
+#name{
+  text-transform: capitalize;
+}
 .logodiv{
   padding:20px;
   padding-top:30px;
