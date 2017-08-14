@@ -116,7 +116,7 @@ var clickcountC = 1;
 var clickcountT = 1;
 var clickcountM = 1;
 
-$('.taskoption').click(function(e){
+$('.taskoption').on('click',function(e){
 	e.preventDefault();
 	clicked++;
 	if(clicked == 3){

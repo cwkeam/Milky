@@ -11,6 +11,19 @@ $(document).ready(function(){
     $('.alert').css('display', 'block');
   }
 
+  $('.task-description').each(function(){
+    console.log($(this).text());
+    if($(this).text() == ''){
+      $(this).text('Enter a description about this step.');
+    }
+  });
+  $('.containsteps-titleofstep').each(function(){
+    console.log($(this).text());
+
+    if($(this).text() == ''){
+      $(this).text('ENTER A TITLE');
+    }
+  });
   howManySteps = $('.col-md-4:last-child').attr('id').slice(0,1);
   console.log(howManySteps);
 });
