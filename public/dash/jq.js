@@ -1,16 +1,10 @@
 var socket = io();
-
 var howManySteps = 1;
-
-
-
-
 $(document).ready(function(){
   checkProgress();
   if($('#name').text() == '' || $('#goal').text() == ''){
     $('.alert').css('display', 'block');
   }
-
   $('.task-description').each(function(){
     console.log($(this).text());
     if($(this).text() == ''){
@@ -19,7 +13,6 @@ $(document).ready(function(){
   });
   $('.containsteps-titleofstep').each(function(){
     console.log($(this).text());
-
     if($(this).text() == ''){
       $(this).text('ENTER A TITLE');
     }
@@ -90,10 +83,9 @@ $(document).on('blur', '.task-description', function(){
   });
 });
 
-
-
 // Add step
 $('.addStepDiv').click(function(){
+
   var waiting = `
   <div class="col-md-4 loading">
     <div class="contain-step">
@@ -101,6 +93,7 @@ $('.addStepDiv').click(function(){
     </div>
   </div>
   `;
+  howManySteps++;
   $('.containsteps').append(waiting);
   socket.emit('addStepDiv', {
     url:window.location.pathname.replace('/',''),
@@ -125,7 +118,6 @@ socket.on('addStepDiv complete', function(){
   </div>
   `;
   $('.containsteps').append(onestep);
-  howManySteps++;
   checkProgress();
   // if(deleteClicked == true){
   //   startdelete();

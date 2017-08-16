@@ -77,7 +77,6 @@ io.on('connection', (socket) => {
 	socket.on('changing status', (doc)=>{
 		var changedTo = '';
 		console.log(changedTo);
-
 		if (doc.changedTo =='in progress'){
 			changedTo = 'progress';
 		}else{
