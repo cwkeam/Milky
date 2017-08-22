@@ -85,7 +85,6 @@ $(document).on('blur', '.task-description', function(){
 
 // Add step
 $('.addStepDiv').click(function(){
-
   var waiting = `
   <div class="col-md-4 loading">
     <div class="contain-step">
@@ -141,7 +140,6 @@ $(document).on('click','.delete-step', function(e){
 socket.on('deleteStepDiv completed', function(doc){
   $('#'+doc.index+'step').remove();
   checkProgress();
-
 });
 var deleteClicked = false;
 $('.deleteDiv').click(function(){

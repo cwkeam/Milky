@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const Link = require('./models/openlinks');
 
 
-mongoose.connect(process.env.MONGODB_URL);
+mongoose.connect('mongodb://localhost:/milky');
 //
 var port = process.env.PORT || 8000;
 
@@ -19,7 +19,6 @@ var server = http.createServer(app);
 var io = socketIO(server);
 
 io.on('connection', (socket) => {
-
 	socket.on('sendForm', function(doc){
 		var username = doc.username;
 		var goaltitle = doc.goaltitle;
@@ -35,7 +34,7 @@ io.on('connection', (socket) => {
 					goaltitle
 				});
 				function loopThrough(callback) {
-					for(var i=0; i<stepsArray.length; i++){
+					for(var i = 0; i<stepsArray.length; i++){
 						newLink.steps.push({type: stepsArray[i].type, description: stepsArray[i].input, index: i+1, status:'start'});
 					}
 					callback();
@@ -93,8 +92,6 @@ io.on('connection', (socket) => {
 			}
 		});
 	});
-
-
 	// add steps
 	socket.on('addStepDiv',(doc)=>{
 		Link.findOne({
