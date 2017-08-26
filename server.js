@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const Link = require('./models/openlinks');
 
 
-mongoose.connect('mongodb://localhost:/milky');
+mongoose.connect(process.env.MONGODB_URL);
 //
 var port = process.env.PORT || 8000;
 
@@ -161,7 +161,6 @@ io.on('connection', (socket) => {
 					dbdoc.goaltitle = doc.changedTo;
 					dbdoc.save();
 				}
-
 			}
 		});
 	});

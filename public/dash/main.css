@@ -156,6 +156,7 @@ body{
   text-align: center;
   height:100%;
   position:relative;
+  transition:all 300ms ease-in-out;
 }
 .finished-progressbar p{
   position:absolute;
