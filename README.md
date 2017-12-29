@@ -1,6 +1,7 @@
 # Milky
 This is our project for WebHacks2017. 
-We won 1st place in the hackathon with this project. We were written about in one of the sponsors' blog: https://blog.manifold.co/hackathon-spotlight-my-chat-with-webhacks-winner-milky-505dea8ddc9f
+We won 1st place in the hackathon with this project. 
+We were written about in one of the sponsors' blog: https://blog.manifold.co/hackathon-spotlight-my-chat-with-webhacks-winner-milky-505dea8ddc9f
 
 Milky was designed for you to organize your thoughts and ambitions amidst such a hasteful world. Many of us don't commit ourselves to achieving our deepest desires because it really is difficult to get started with anything. Milky aims to make an intuitive app to organize what you must do to accomplish what you want, in the clearest way possible. You will see what we mean once you see what we've made for you.
 
